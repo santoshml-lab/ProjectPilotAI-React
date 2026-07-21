@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/newproject.css";
+import { supabase } from "../services/supabase";
 
 export default function NewProject() {
 
@@ -30,6 +31,7 @@ export default function NewProject() {
 
     setLoading(true);
     setResult("");
+    
 
     try {
 
@@ -59,6 +61,29 @@ export default function NewProject() {
       }
 
       setResult(data.result);
+      await supabase
+.from("projects")
+.insert([
+
+{
+
+project_name: project.project_name,
+
+project_type: project.project_type,
+
+frontend: project.frontend,
+
+backend: project.backend,
+
+database_name: project.database,
+
+description: project.description,
+
+ai_result: data.result
+
+}
+
+]);
 
     } catch (err) {
 
