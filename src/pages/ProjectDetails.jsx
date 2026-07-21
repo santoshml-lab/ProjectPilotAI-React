@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { supabase } from "../services/supabase";
+import "../styles/projectdetails.css";
 
 export default function ProjectDetails() {
 
