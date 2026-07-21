@@ -9,6 +9,7 @@ export default function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   async function handleLogin(e) {
 
@@ -48,11 +49,26 @@ export default function Login() {
           />
 
           <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e)=>setPassword(e.target.value)}
-          />
+          type={showPassword ? "text" : "password"}
+           placeholder="Password"
+           value={password}
+          onChange={(e) => setPassword(e.target.value)}
+  
+            />
+          <div className="show-password">
+
+        <button
+        type="button"
+       onClick={() => setShowPassword(!showPassword)}
+      >
+    {showPassword ? "🙈 Hide Password" : "👁 Show Password"}
+  </button>
+
+</div>
+            
+                 
+            
+          
 
           <button type="submit">
             Login
