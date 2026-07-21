@@ -3,29 +3,30 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { supabase } from "../services/supabase";
 
-
-
 export default function Dashboard() {
+
   const [projects, setProjects] = useState([]);
+
   useEffect(() => {
 
-  async function loadProjects() {
+    async function loadProjects() {
 
-    const { data, error } = await supabase
-      .from("projects")
-      .select("*")
-      .order("created_at", { ascending: false });
+      const { data, error } = await supabase
+        .from("projects")
+        .select("*")
+        .order("created_at", { ascending: false });
 
-    if (!error) {
-      setProjects(data);
+      if (!error) {
+        setProjects(data);
+      } else {
+        console.log(error);
+      }
+
     }
 
-  }
+    loadProjects();
 
-  loadProjects();
-
-}, []);
-  console.log("Supabase Connected", supabase);
+  }, []);
 
   return (
 
@@ -36,6 +37,8 @@ export default function Dashboard() {
       <div className="main">
 
         <Navbar />
+
+        {/* HERO */}
 
         <section className="hero">
 
@@ -52,45 +55,33 @@ export default function Dashboard() {
 
         </section>
 
+        {/* STATS */}
+
         <section className="stats">
 
           <div className="card">
-
             <h2>28</h2>
-
             <p>Projects</p>
-
           </div>
 
           <div className="card">
-
             <h2>154</h2>
-
             <p>AI Requests</p>
-
           </div>
 
           <div className="card">
-
             <h2>12</h2>
-
             <p>Deployments</p>
-
           </div>
 
           <div className="card">
-
             <h2>98%</h2>
-
             <p>Success Rate</p>
-
           </div>
 
         </section>
 
-        {/* ========================= */}
         {/* QUICK ACTIONS */}
-        {/* ========================= */}
 
         <section className="quick-actions">
 
@@ -138,47 +129,47 @@ export default function Dashboard() {
 
         </section>
 
-                
-      
+        {/* PROJECT HISTORY */}
 
-      
-      {/* ========================= */}
-{/* RECENT PROJECTS */}
-{/* ========================= */}
+        <section className="recent-projects">
 
-<section className="recent-projects">
+          <h2>📁 Project History</h2>
 
-  <h2>📁 Recent Projects</h2>
+          <div className="projects-grid">
 
-  <div className="projects-grid">
+            {projects.length === 0 ? (
 
-    <div className="project-card">
-      <h3>🚀 ProjectPilot AI</h3>
-      <p>React + Node.js + Supabase</p>
-      <button>Open</button>
-    </div>
+              <div className="project-card">
 
-    <div className="projects-grid">
+                <h3>No Projects Yet</h3>
 
-  {projects.map((item) => (
+                <p>Create your first AI project.</p>
 
-    <div className="project-card" key={item.id}>
+              </div>
 
-      <h3>{item.project_name}</h3>
+            ) : (
 
-      <p>{item.frontend} + {item.backend}</p>
+              projects.map((item) => (
 
-      <button>Open</button>
+                <div className="project-card" key={item.id}>
 
-    </div>
+                  <h3>{item.project_name}</h3>
 
-  ))}
+                  <p>{item.frontend} + {item.backend}</p>
 
-</div>
-      
-      
+                  <button>Open</button>
 
-</section>
+                </div>
+
+              ))
+
+            )}
+
+          </div>
+
+        </section>
+
+      </div>
 
     </>
 
