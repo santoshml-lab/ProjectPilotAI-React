@@ -65,3 +65,22 @@ color:#2563eb;
 text-decoration:none;
 font-weight:bold;
 }
+
+.show-password{
+margin-top:10px;
+text-align:right;
+}
+
+.show-password button{
+background:none;
+border:none;
+color:#2563eb;
+cursor:pointer;
+font-size:14px;
+font-weight:600;
+padding:0;
+}
+
+.show-password button:hover{
+text-decoration:underline;
+}
