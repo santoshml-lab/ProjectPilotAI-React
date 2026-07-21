@@ -1,20 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 
-function Dashboard() {
-  return <h1>🚀 Dashboard</h1>;
-}
-
-function Login() {
-  return <h1>🔐 Login Page</h1>;
-}
-
-function Signup() {
-  return <h1>📝 Signup Page</h1>;
-}
-
-function NewProject() {
-  return <h1>🤖 New Project</h1>;
-}
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Dashboard from "./pages/Dashboard";
+import NewProject from "./pages/NewProject";
 
 export default function App() {
   return (
