@@ -64,6 +64,56 @@ export default function Dashboard() {
 
         </section>
 
+        {/* ========================= */}
+        {/* QUICK ACTIONS */}
+        {/* ========================= */}
+
+        <section className="quick-actions">
+
+          <h2>⚡ Quick Actions</h2>
+
+          <div className="actions-grid">
+
+            <div className="action-card">
+              <h3>🤖 AI Generator</h3>
+              <p>Create complete software projects.</p>
+              <button>Open</button>
+            </div>
+
+            <div className="action-card">
+              <h3>🗄 Database</h3>
+              <p>Generate SQL database schema.</p>
+              <button>Open</button>
+            </div>
+
+            <div className="action-card">
+              <h3>⚙ API Generator</h3>
+              <p>Create REST APIs instantly.</p>
+              <button>Open</button>
+            </div>
+
+            <div className="action-card">
+              <h3>💻 Code Generator</h3>
+              <p>Generate HTML CSS React Node.</p>
+              <button>Open</button>
+            </div>
+
+            <div className="action-card">
+              <h3>📄 README</h3>
+              <p>Create professional GitHub README.</p>
+              <button>Open</button>
+            </div>
+
+            <div className="action-card">
+              <h3>🚀 Deploy</h3>
+              <p>Deploy to Vercel & Render.</p>
+              <button>Open</button>
+            </div>
+
+          </div>
+
+        </section>
+
       </div>
 
     </>
