@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { supabase } from "../services/supabase";
+import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
 
   const [projects, setProjects] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
 
@@ -157,7 +159,11 @@ export default function Dashboard() {
 
                   <p>{item.frontend} + {item.backend}</p>
 
-                  <button>Open</button>
+                  <button
+                  onClick={() => navigate(`/project/${item.id}`)}
+                 >
+                  Open
+                  </button>
 
                 </div>
 
