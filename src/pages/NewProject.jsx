@@ -51,7 +51,7 @@ export default function NewProject() {
 
       if (!response.ok) {
 
-        alert(data.detail || "Something went wrong");
+        alert(JSON.stringify(data, null, 2));
 
         setLoading(false);
         return;
