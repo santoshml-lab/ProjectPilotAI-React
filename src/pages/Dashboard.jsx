@@ -1,7 +1,9 @@
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
+import { supabase } from "../services/supabase";
 
 export default function Dashboard() {
+  console.log("Supabase Connected", supabase);
 
   return (
 
