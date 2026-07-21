@@ -1,4 +1,37 @@
+import { useState } from "react";
+
 export default function NewProject() {
+
+  const [project, setProject] = useState({
+    project_name: "",
+    project_type: "",
+    frontend: "",
+    backend: "",
+    database: "",
+    description: ""
+  });
+
+  function handleChange(e) {
+
+    setProject({
+
+      ...project,
+
+      [e.target.name]: e.target.value
+
+    });
+
+  }
+
+  function handleSubmit(e) {
+
+    e.preventDefault();
+
+    console.log(project);
+
+    alert("✅ Form Ready");
+
+  }
 
   return (
 
@@ -6,43 +39,66 @@ export default function NewProject() {
 
       <h1>🤖 AI Project Generator</h1>
 
-      <form className="project-form">
+      <form className="project-form" onSubmit={handleSubmit}>
 
         <input
-          type="text"
+          name="project_name"
           placeholder="Project Name"
+          value={project.project_name}
+          onChange={handleChange}
         />
 
-        <select>
-          <option>Choose Project Type</option>
+        <select
+          name="project_type"
+          value={project.project_type}
+          onChange={handleChange}
+        >
+
+          <option value="">Choose Project Type</option>
+
           <option>Web App</option>
+
           <option>Mobile App</option>
+
           <option>AI Project</option>
+
           <option>Dashboard</option>
+
         </select>
 
         <input
-          type="text"
-          placeholder="Frontend (React, Vue...)"
+          name="frontend"
+          placeholder="Frontend"
+          value={project.frontend}
+          onChange={handleChange}
         />
 
         <input
-          type="text"
-          placeholder="Backend (FastAPI, Node...)"
+          name="backend"
+          placeholder="Backend"
+          value={project.backend}
+          onChange={handleChange}
         />
 
         <input
-          type="text"
+          name="database"
           placeholder="Database"
+          value={project.database}
+          onChange={handleChange}
         />
 
         <textarea
           rows="6"
+          name="description"
           placeholder="Project Description"
-        ></textarea>
+          value={project.description}
+          onChange={handleChange}
+        />
 
         <button type="submit">
+
           🚀 Generate Project
+
         </button>
 
       </form>
