@@ -5,6 +5,7 @@ import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import NewProject from "./pages/NewProject";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ProjectDetails from "./pages/ProjectDetails";
 
 export default function App() {
 
@@ -33,6 +34,8 @@ export default function App() {
           </ProtectedRoute>
         }
       />
+
+      <Route path="/project/:id" element={<ProjectDetails />} />
 
     </Routes>
 
