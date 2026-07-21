@@ -11,25 +11,63 @@ export default function NewProject() {
     description: ""
   });
 
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState("");
+
   function handleChange(e) {
 
     setProject({
-
       ...project,
-
       [e.target.name]: e.target.value
-
     });
 
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
 
     e.preventDefault();
 
-    console.log(project);
+    setLoading(true);
+    setResult("");
 
-    alert("✅ Form Ready");
+    try {
+
+      const response = await fetch(
+        "https://projectpilotlession.onrender.com/generate-project",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json"
+          },
+
+          body: JSON.stringify(project)
+
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+
+        alert(data.detail || "Something went wrong");
+
+        setLoading(false);
+        return;
+
+      }
+
+      setResult(data.result);
+
+    } catch (err) {
+
+      alert("❌ Backend Connection Failed");
+
+      console.log(err);
+
+    }
+
+    setLoading(false);
 
   }
 
@@ -97,11 +135,25 @@ export default function NewProject() {
 
         <button type="submit">
 
-          🚀 Generate Project
+          {loading ? "Generating..." : "🚀 Generate Project"}
 
         </button>
 
       </form>
+
+      {loading && (
+        <h3>🤖 AI is generating your project...</h3>
+      )}
+
+      {result && (
+        <div className="result-box">
+
+          <h2>Generated Project</h2>
+
+          <pre>{result}</pre>
+
+        </div>
+      )}
 
     </div>
 
