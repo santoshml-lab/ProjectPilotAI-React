@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "../services/supabase";
 
 export default function Login() {
@@ -7,7 +7,6 @@ export default function Login() {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
-
   const [password, setPassword] = useState("");
 
   async function handleLogin(e) {
@@ -15,22 +14,14 @@ export default function Login() {
     e.preventDefault();
 
     const { error } = await supabase.auth.signInWithPassword({
-
       email,
-
       password
-
     });
 
     if (error) {
-
       alert(error.message);
-
       return;
-
     }
-
-    alert("✅ Login Successful");
 
     navigate("/dashboard");
 
@@ -38,47 +29,45 @@ export default function Login() {
 
   return (
 
-    <div style={{ padding: "50px" }}>
+    <div className="login-page">
 
-      <h1>🔐 Login</h1>
+      <div className="login-card">
 
-      <form onSubmit={handleLogin}>
+        <h1>🚀 ProjectPilot AI</h1>
 
-        <input
+        <p>Welcome Back</p>
 
-          type="email"
+        <form onSubmit={handleLogin}>
 
-          placeholder="Email"
+          <input
+            type="email"
+            placeholder="Email Address"
+            value={email}
+            onChange={(e)=>setEmail(e.target.value)}
+          />
 
-          value={email}
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e)=>setPassword(e.target.value)}
+          />
 
-          onChange={(e) => setEmail(e.target.value)}
+          <button type="submit">
+            Login
+          </button>
 
-        />
+        </form>
 
-        <br /><br />
+        <p className="signup-link">
 
-        <input
+          Don't have an account?
 
-          type="password"
+          <Link to="/signup"> Sign Up</Link>
 
-          placeholder="Password"
+        </p>
 
-          value={password}
-
-          onChange={(e) => setPassword(e.target.value)}
-
-        />
-
-        <br /><br />
-
-        <button type="submit">
-
-          Login
-
-        </button>
-
-      </form>
+      </div>
 
     </div>
 
