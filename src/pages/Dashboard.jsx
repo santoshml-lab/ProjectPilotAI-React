@@ -3,10 +3,12 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { supabase } from "../services/supabase";
 import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
 
   const [projects, setProjects] = useState([]);
+  const navigate = useNavigate();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,6 +29,31 @@ export default function Dashboard() {
     }
 
     loadProjects();
+    
+    async function deleteProject(id) {
+
+  const confirmDelete = window.confirm(
+    "Delete this project?"
+  );
+
+  if (!confirmDelete) return;
+
+  const { error } = await supabase
+    .from("projects")
+    .delete()
+    .eq("id", id);
+
+  if (error) {
+
+    alert(error.message);
+
+    return;
+
+  }
+
+  setProjects(projects.filter((p) => p.id !== id));
+
+    }
 
   }, []);
 
@@ -141,31 +168,45 @@ export default function Dashboard() {
 
             {projects.length === 0 ? (
 
-              <div className="project-card">
+              <div className="project-card" key={item.id}>
 
-                <h3>No Projects Yet</h3>
+  <h3>{item.project_name}</h3>
 
-                <p>Create your first AI project.</p>
+  <p>{item.frontend} + {item.backend}</p>
 
-              </div>
+  <div
+    style={{
+      display: "flex",
+      gap: "10px",
+      marginTop: "15px"
+    }}
+  >
 
-            ) : (
+    <button
+      onClick={() => navigate(`/project/${item.id}`)}
+    >
+      Open
+    </button>
 
-              projects.map((item) => (
+    <button
+      onClick={() => deleteProject(item.id)}
+      style={{
+        background: "#dc2626",
+        color: "#fff"
+      }}
+    >
+      Delete
+    </button>
 
-                <div className="project-card" key={item.id}>
+  </div>
 
-                  <h3>{item.project_name}</h3>
+</div>
 
-                  <p>{item.frontend} + {item.backend}</p>
+                
 
-                  <button
-                  onClick={() => navigate(`/project/${item.id}`)}
-                 >
-                  Open
-                  </button>
+                
 
-                </div>
+              
 
               ))
 
