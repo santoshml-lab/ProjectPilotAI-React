@@ -115,6 +115,37 @@ export default function Dashboard() {
         </section>
 
       </div>
+      {/* ========================= */}
+{/* RECENT PROJECTS */}
+{/* ========================= */}
+
+<section className="recent-projects">
+
+  <h2>📁 Recent Projects</h2>
+
+  <div className="projects-grid">
+
+    <div className="project-card">
+      <h3>🚀 ProjectPilot AI</h3>
+      <p>React + Node.js + Supabase</p>
+      <button>Open</button>
+    </div>
+
+    <div className="project-card">
+      <h3>🛒 E-Commerce App</h3>
+      <p>MERN Stack</p>
+      <button>Open</button>
+    </div>
+
+    <div className="project-card">
+      <h3>🤖 AI Resume Analyzer</h3>
+      <p>FastAPI + React</p>
+      <button>Open</button>
+    </div>
+
+  </div>
+
+</section>
 
     </>
 
