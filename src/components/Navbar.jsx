@@ -15,7 +15,7 @@ export default function Navbar() {
 
         <button
           className="new-btn"
-          onClick={() => navigate("/newproject")}
+          onClick={() => navigate("/NewProject.jsx")}
         >
           + New Project
         </button>
