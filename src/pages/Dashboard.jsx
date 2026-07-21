@@ -1,8 +1,30 @@
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { supabase } from "../services/supabase";
 
+
+
 export default function Dashboard() {
+  const [projects, setProjects] = useState([]);
+  useEffect(() => {
+
+  async function loadProjects() {
+
+    const { data, error } = await supabase
+      .from("projects")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (!error) {
+      setProjects(data);
+    }
+
+  }
+
+  loadProjects();
+
+}, []);
   console.log("Supabase Connected", supabase);
 
   return (
@@ -133,19 +155,25 @@ export default function Dashboard() {
       <button>Open</button>
     </div>
 
-    <div className="project-card">
-      <h3>🛒 E-Commerce App</h3>
-      <p>MERN Stack</p>
+    <div className="projects-grid">
+
+  {projects.map((item) => (
+
+    <div className="project-card" key={item.id}>
+
+      <h3>{item.project_name}</h3>
+
+      <p>{item.frontend} + {item.backend}</p>
+
       <button>Open</button>
+
     </div>
 
-    <div className="project-card">
-      <h3>🤖 AI Resume Analyzer</h3>
-      <p>FastAPI + React</p>
-      <button>Open</button>
-    </div>
+  ))}
 
-  </div>
+</div>
+      
+      
 
 </section>
 
