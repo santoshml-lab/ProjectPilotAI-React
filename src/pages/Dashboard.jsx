@@ -138,43 +138,7 @@ export default function Dashboard() {
 
         </section>
 
-      <section className="recent-projects">
-
-  <h2>📁 Project History</h2>
-
-  <div className="projects-grid">
-
-    {projects.length === 0 ? (
-
-      <div className="project-card">
-
-        <h3>No Projects Yet</h3>
-
-        <p>Create your first AI project.</p>
-
-      </div>
-
-    ) : (
-
-      projects.map((item) => (
-
-        <div className="project-card" key={item.id}>
-
-          <h3>{item.project_name}</h3>
-
-          <p>{item.frontend} + {item.backend}</p>
-
-          <button>Open</button>
-
-        </div>
-
-      ))
-
-    )}
-
-  </div>
-
-</section>
+                
       
 
       
