@@ -9,6 +9,7 @@ import { supabase } from "../services/supabase";
 export default function Dashboard() {
 
   const [projects, setProjects] = useState([]);
+  const [search, setSearch] = useState("");
 
   const navigate = useNavigate();
 
@@ -181,6 +182,21 @@ export default function Dashboard() {
 <section className="recent-projects">
 
   <h2>📁 Project History</h2>
+  <input
+  type="text"
+  placeholder="🔍 Search Project..."
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "12px",
+    margin: "20px 0",
+    borderRadius: "10px",
+    border: "none",
+    outline: "none",
+    fontSize: "16px"
+  }}
+/>
 
   <div className="projects-grid">
 
@@ -196,7 +212,13 @@ export default function Dashboard() {
 
     ) : (
 
-      projects.map((item) => (
+      projects
+  .filter((item) =>
+    item.project_name
+      .toLowerCase()
+      .includes(search.toLowerCase())
+  )
+  .map((item) => (
 
         <div className="project-card" key={item.id}>
 
