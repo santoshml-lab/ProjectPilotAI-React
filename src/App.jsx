@@ -10,6 +10,7 @@ import ProjectDetails from "./pages/ProjectDetails";
 import DatabaseGenerator from "./pages/DatabaseGenerator";
 import ApiGenerator from "./pages/ApiGenerator";
 import CodeGenerator from "./pages/CodeGenerator";
+import ReadmeGenerator from "./pages/ReadmeGenerator";
 
 export default function App() {
 
@@ -79,6 +80,16 @@ export default function App() {
     </ProtectedRoute>
   }
 />
+
+   <Route
+  path="/readme"
+  element={
+    <ProtectedRoute>
+      <ReadmeGenerator />
+    </ProtectedRoute>
+  }
+/>   
+      
       
 
     </Routes>
