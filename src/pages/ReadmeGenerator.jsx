@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/newpoject.css";
 
 
 export default function ReadmeGenerator() {
