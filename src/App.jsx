@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import EditProject from "./pages/EditProject";
 
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -40,6 +41,14 @@ export default function App() {
   element={
     <ProtectedRoute>
       <ProjectDetails />
+    </ProtectedRoute>
+  }
+/>
+      <Route
+  path="/edit/:id"
+  element={
+    <ProtectedRoute>
+      <EditProject />
     </ProtectedRoute>
   }
 />
