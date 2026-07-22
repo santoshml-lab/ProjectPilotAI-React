@@ -9,6 +9,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import ProjectDetails from "./pages/ProjectDetails";
 import DatabaseGenerator from "./pages/DatabaseGenerator";
 import ApiGenerator from "./pages/ApiGenerator";
+import CodeGenerator from "./pages/CodeGenerator";
 
 export default function App() {
 
@@ -67,6 +68,14 @@ export default function App() {
   element={
     <ProtectedRoute>
       <ApiGenerator />
+    </ProtectedRoute>
+  }
+/>
+      <Route
+  path="/code"
+  element={
+    <ProtectedRoute>
+      <CodeGenerator />
     </ProtectedRoute>
   }
 />
