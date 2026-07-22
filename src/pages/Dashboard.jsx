@@ -124,67 +124,82 @@ export default function Dashboard() {
 
 {/* QUICK ACTIONS */}
 
-<section className="quick-actions">
+<div className="action-card">
 
-  <h2>⚡ Quick Actions</h2>
+  <span className="badge">AI Powered</span>
 
-  <div className="actions-grid">
+  <h3>🤖 AI Generator</h3>
 
-    <div className="action-card">
+  <p>
+    Generate complete software projects using Artificial Intelligence.
+  </p>
 
-      <h3>🤖 AI Generator</h3>
+  <button
+    onClick={() => navigate("/newproject")}
+  >
+    🚀 Open
+  </button>
 
-      <p>Create complete software projects.</p>
-
-      <button
-        onClick={() => navigate("/newproject")}
-      >
-        Open
-      </button>
-
-    </div>
-
-    <div className="action-card">
-
-      <h3>🗄 Database Generator</h3>
-
-      <p>Generate SQL database schema.</p>
-
-      <button
-  onClick={() => navigate("/database")}
->
-  Open
-</button>
-
-    </div>
+</div>
+  
 
     <div className="action-card">
 
-      <h3>⚙ API Generator</h3>
+  <span className="badge">AI Powered</span>
 
-      <p>Create REST APIs instantly.</p>
+  <h3>🗄 Database Generator</h3>
 
-      <button
-  onClick={() => navigate("/api")}
->
-  Open
-</button>
+  <p>
+    Design production-ready database schemas instantly.
+  </p>
 
-    </div>
+  <button
+    onClick={() => navigate("/database")}
+  >
+    🚀 Open
+  </button>
+
+</div>
+  
 
     <div className="action-card">
 
-      <h3>💻 Code Generator</h3>
+  <span className="badge">AI Powered</span>
 
-      <p>Generate React, Node & FastAPI code.</p>
+  <h3>⚙ API Generator</h3>
 
-      <button
-  onClick={() => navigate("/code")}
->
-  Open
-</button>
+  <p>
+    Generate professional REST APIs with best practices.
+  </p>
 
-    </div>
+  <button
+    onClick={() => navigate("/api")}
+  >
+    🚀 Open
+  </button>
+
+</div>
+
+
+    <div className="action-card">
+
+  <span className="badge">AI Powered</span>
+
+  <h3>💻 Code Generator</h3>
+
+  <p>
+    Generate production-ready source code using AI.
+  </p>
+
+  <button
+    onClick={() => navigate("/code")}
+  >
+    🚀 Open
+  </button>
+
+</div>
+
+      
 
   </div>
 
