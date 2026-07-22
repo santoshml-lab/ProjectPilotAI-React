@@ -275,9 +275,8 @@ export default function Dashboard() {
             <b>Type:</b> {item.project_type}
           </p>
 
-          <p>
-            <b>Stack:</b> {item.frontend} + {item.backend}
-          </p>
+          
+            
 
           
   <div
