@@ -60,59 +60,99 @@ export default function ApiGenerator() {
   }
 
   return (
-    <div className="main">
 
-  <h1>⚙ API Generator</h1>
+  <div className="main">
 
-  <form className="project-form">
+    <h1>⚙ API Generator</h1>
 
-    <input
-      name="project_name"
-      placeholder="Project Name"
-    />
+    <form
+      className="project-form"
+      onSubmit={handleSubmit}
+    >
 
-    <select name="backend">
+      <input
+        name="project_name"
+        placeholder="Project Name"
+        value={form.project_name}
+        onChange={handleChange}
+      />
 
-      <option value="">Select Backend</option>
+      <select
+        name="backend"
+        value={form.backend}
+        onChange={handleChange}
+      >
 
-      <option>FastAPI</option>
+        <option value="">
+          Select Backend
+        </option>
 
-      <option>Node.js + Express</option>
+        <option>FastAPI</option>
 
-      <option>Django</option>
+        <option>Node.js + Express</option>
 
-      <option>Spring Boot</option>
+        <option>Django</option>
 
-    </select>
+        <option>Spring Boot</option>
 
-    <select name="authentication">
+      </select>
 
-      <option value="">Authentication</option>
+      <select
+        name="authentication"
+        value={form.authentication}
+        onChange={handleChange}
+      >
 
-      <option>JWT</option>
+        <option value="">
+          Authentication
+        </option>
 
-      <option>OAuth</option>
+        <option>JWT</option>
 
-      <option>Session</option>
+        <option>OAuth</option>
 
-      <option>None</option>
+        <option>Session</option>
 
-    </select>
+        <option>None</option>
 
-    <textarea
-      rows="8"
-      name="description"
-      placeholder="Describe your API..."
-    />
+      </select>
 
-    <button type="submit">
-      🚀 Generate API
-    </button>
+      <textarea
+        rows="8"
+        name="description"
+        placeholder="Describe your API..."
+        value={form.description}
+        onChange={handleChange}
+      />
 
-  </form>
+      <button type="submit">
 
-</div>
-  );
+        {loading ? "Generating..." : "🚀 Generate API"}
+
+      </button>
+
+    </form>
+
+    {loading && (
+      <h3>🤖 AI is generating your API...</h3>
+    )}
+
+    {result && (
+
+      <div className="result-box">
+
+        <h2>Generated API</h2>
+
+        <pre>{result}</pre>
+
+      </div>
+
+    )}
+
+  </div>
+
+);
+      
 
 }
 
