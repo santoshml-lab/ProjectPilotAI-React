@@ -125,6 +125,11 @@ export default function Dashboard() {
 </section>
 
 {/* QUICK ACTIONS */}
+ <section className="quick-actions">
+
+  <h2>⚡ Quick Actions</h2>
+
+  <div className="actions-grid">       
 
 <div className="action-card">
 
