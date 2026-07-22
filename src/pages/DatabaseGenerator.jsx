@@ -15,13 +15,49 @@ export default function DatabaseGenerator() {
     });
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  const [loading, setLoading] = useState(false);
+const [result, setResult] = useState("");
 
-    console.log(form);
+async function handleSubmit(e) {
 
-    alert("🚀 Database Generator Ready");
+  e.preventDefault();
+
+  setLoading(true);
+  setResult("");
+
+  try {
+
+    const response = await fetch(
+      "https://projectpilotlession.onrender.com/generate-database",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(form)
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      alert(data.detail);
+      setLoading(false);
+      return;
+    }
+
+    setResult(data.result);
+
+  } catch (err) {
+
+    alert("Backend Connection Failed");
+
   }
+
+  setLoading(false);
+
+}
+    
 
   return (
 
