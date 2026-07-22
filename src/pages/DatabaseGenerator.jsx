@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/newproject.css";
 
 export default function DatabaseGenerator() {
 
