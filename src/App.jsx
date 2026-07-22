@@ -7,6 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import NewProject from "./pages/NewProject";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ProjectDetails from "./pages/ProjectDetails";
+import DatabaseGenerator from "./pages/DatabaseGenerator";
 
 export default function App() {
 
@@ -49,6 +50,14 @@ export default function App() {
   element={
     <ProtectedRoute>
       <EditProject />
+    </ProtectedRoute>
+  }
+/>
+      <Route
+  path="/database"
+  element={
+    <ProtectedRoute>
+      <DatabaseGenerator />
     </ProtectedRoute>
   }
 />
