@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
+import "../styles/dashboard.css";
 
 import { supabase } from "../services/supabase";
+
 
 export default function Dashboard() {
 
