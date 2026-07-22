@@ -210,7 +210,7 @@ export default function Dashboard() {
             <b>Stack:</b> {item.frontend} + {item.backend}
           </p>
 
-          <div
+          
   <div
   style={{
     display: "flex",
