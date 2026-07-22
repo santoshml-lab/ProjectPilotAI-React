@@ -211,12 +211,17 @@ export default function Dashboard() {
           </p>
 
           <div
+  <div
   style={{
     display: "flex",
-    gap: "10px",
-    marginTop: "15px"
+    gap: "8px",
+    marginTop: "15px",
+    flexWrap: "wrap"
   }}
 >
+    
+    
+    
 
   <button
     onClick={() => navigate(`/project/${item.id}`)}
