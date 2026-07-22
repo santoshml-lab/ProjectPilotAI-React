@@ -79,7 +79,47 @@ export default function Dashboard() {
         <Navbar />
 
 {/* HERO */}
+        
+<section className="premium-banner">
 
+  <div className="banner-left">
+
+    <span className="live-badge">
+      🚀 AI Powered Platform
+    </span>
+
+    <h1>
+      Build Complete Software Projects
+      <br />
+      <span>10x Faster with AI</span>
+    </h1>
+
+    <p>
+      Generate Full Stack Projects, APIs, Databases,
+      Production Code and Documentation —
+      all from one intelligent platform.
+    </p>
+
+  </div>
+
+  <div className="banner-right">
+
+    <div className="banner-box">
+      ⚡ Fast
+    </div>
+
+    <div className="banner-box">
+      🤖 AI
+    </div>
+
+    <div className="banner-box">
+      🚀 Deploy
+    </div>
+
+  </div>
+
+</section>
+        
 <section className="hero">
 
   <h1>🚀 Welcome to ProjectPilot AI</h1>
