@@ -732,4 +732,37 @@ transform:scale(1.05);
 
 }
 
+/* ==========================
+README RESULT BOX
+========================== */
+
+.result-box{
+background:#111827;
+padding:25px;
+border-radius:18px;
+margin-top:30px;
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+overflow:auto;
+}
+
+.result-box h2{
+color:#60a5fa;
+margin-bottom:20px;
+font-size:28px;
+}
+
+.result-box pre{
+white-space:pre-wrap;
+word-break:break-word;
+line-height:1.8;
+font-size:15px;
+color:#e2e8f0;
+background:#0f172a;
+padding:20px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,.08);
+font-family:Consolas, monospace;
+overflow-x:auto;
+}
+
 
