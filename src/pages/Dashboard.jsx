@@ -208,7 +208,22 @@ export default function Dashboard() {
   </button>
 
 </div>
+    
+<div className="action-card">
 
+  <span className="badge">AI Powered</span>
+
+  <h3>📄 README Generator</h3>
+
+  <p>
+    Generate a professional GitHub README instantly.
+  </p>
+
+  <button onClick={() => navigate("/readme")}>
+    🚀 Open
+  </button>
+
+</div>
       
 
   </div>
