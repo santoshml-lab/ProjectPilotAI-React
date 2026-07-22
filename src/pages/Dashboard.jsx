@@ -164,7 +164,11 @@ export default function Dashboard() {
 
       <p>Create REST APIs instantly.</p>
 
-      <button>Coming Soon</button>
+      <button
+  onClick={() => navigate("/api")}
+>
+  Open
+</button>
 
     </div>
 
