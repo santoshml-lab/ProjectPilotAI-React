@@ -178,7 +178,11 @@ export default function Dashboard() {
 
       <p>Generate React, Node & FastAPI code.</p>
 
-      <button>Coming Soon</button>
+      <button
+  onClick={() => navigate("/code")}
+>
+  Open
+</button>
 
     </div>
 
