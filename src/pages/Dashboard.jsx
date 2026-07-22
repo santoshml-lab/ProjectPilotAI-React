@@ -150,7 +150,11 @@ export default function Dashboard() {
 
       <p>Generate SQL database schema.</p>
 
-      <button>Coming Soon</button>
+      <button
+  onClick={() => navigate("/database")}
+>
+  Open
+</button>
 
     </div>
 
