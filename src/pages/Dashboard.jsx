@@ -211,31 +211,41 @@ export default function Dashboard() {
           </p>
 
           <div
-            style={{
-              display: "flex",
-              gap: "10px",
-              marginTop: "15px"
-            }}
-          >
+  style={{
+    display: "flex",
+    gap: "10px",
+    marginTop: "15px"
+  }}
+>
 
-            <button
-              onClick={() => navigate(`/project/${item.id}`)}
-            >
-              Open
-            </button>
+  <button
+    onClick={() => navigate(`/project/${item.id}`)}
+  >
+    Open
+  </button>
 
-            <button
-              onClick={() => deleteProject(item.id)}
-              style={{
-                background: "#dc2626",
-                color: "#fff"
-              }}
-            >
-              Delete
-            </button>
+  <button
+    onClick={() => navigate(`/edit/${item.id}`)}
+    style={{
+      background: "#2563eb",
+      color: "#fff"
+    }}
+  >
+    Edit
+  </button>
 
-          </div>
+  <button
+    onClick={() => deleteProject(item.id)}
+    style={{
+      background: "#dc2626",
+      color: "#fff"
+    }}
+  >
+    Delete
+  </button>
 
+</div>
+                 
         </div>
 
       ))
