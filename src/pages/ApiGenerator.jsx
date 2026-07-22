@@ -19,6 +19,45 @@ export default function ApiGenerator() {
       [e.target.name]: e.target.value
     });
   }
+  async function handleSubmit(e) {
+
+  e.preventDefault();
+
+  setLoading(true);
+  setResult("");
+
+  try {
+
+    const response = await fetch(
+      "https://projectpilotlession.onrender.com/generate-api",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(form)
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      alert(data.detail);
+      setLoading(false);
+      return;
+    }
+
+    setResult(data.result);
+
+  } catch (err) {
+
+    alert("❌ Backend Connection Failed");
+
+  }
+
+  setLoading(false);
+
+  }
 
   return (
     <div className="main">
