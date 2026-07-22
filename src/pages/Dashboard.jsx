@@ -235,6 +235,19 @@ export default function Dashboard() {
         <div className="project-card" key={item.id}>
 
           <h3>{item.project_name}</h3>
+          <p
+    style={{
+      color:"#60a5fa",
+      fontWeight:"600",
+      marginBottom:"12px"
+    }}
+  >
+    🚀 AI Generated Project
+  </p>
+
+  <p>
+    <b>Type:</b> {item.project_type}
+  </p>
 
           <p>
             <b>Type:</b> {item.project_type}
