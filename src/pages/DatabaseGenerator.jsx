@@ -110,6 +110,19 @@ async function handleSubmit(e) {
           🚀 Generate Database
 
         </button>
+        {loading && (
+  <h3>🤖 Generating Database...</h3>
+)}
+
+{result && (
+  <div className="result-box">
+
+    <h2>Generated Database</h2>
+
+    <pre>{result}</pre>
+
+  </div>
+)}
 
       </form>
 
