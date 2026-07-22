@@ -247,6 +247,8 @@ export default function Dashboard() {
     }}
   >
     Delete
+
+    
   </button>
 
 </div>
@@ -268,7 +270,8 @@ export default function Dashboard() {
   );
 
               }
-        
+
+
         
 
   
